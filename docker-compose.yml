@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: lac_fullstack_dev
+      # POSTGRES_USER and POSTGRES_PASSWORD should be set as environment variables
+      # on your system or in a .env file for docker-compose to pick up.
+      # Example:
+      # POSTGRES_USER=your_username
+      # POSTGRES_PASSWORD=your_password
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  backend:
+    build:
+      context: ./backend # Points to backend Dockerfile in the backend folder
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    volumes:
+      - ./backend:/app
+      - ./sql-files:/app/sql-files
+    ports:
+      - "8000:8000"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - app_network
+
+  frontend:
+    build:
+      context: ./frontend # Points to frontend Dockerfile in the frontend folder
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev # Start the Next.js app in development mode
+    env_file:
+      - ./frontend/.env.local # Reference the env.local file in the frontend folder
+    networks:
+      - app_network
+
+volumes:
+  pgdata:
+
+networks:
+  app_network:
+    driver: bridge

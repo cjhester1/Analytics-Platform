@@ -37,22 +37,37 @@ This project is a full-stack application designed to ingest, analyze, and visual
     cd Christopher_Hester
     ```
 
-2.  **Set up environment variables:**
+2.  **Configure Database Environment Variables:**
+    Create a `.env` file in the root of the project (where `docker-compose.yml` is located) and add your PostgreSQL credentials. Replace `your_username`, `your_password`, and `your_database_name` with your actual values.
+
+    ```dotenv
+    POSTGRES_USER=your_username
+    POSTGRES_PASSWORD=your_password
+    POSTGRES_DB=your_database_name
+    ```
+    *Note: For local development, you can use simple credentials. For production, use strong, unique passwords.*
+
+3.  **Configure Frontend Environment Variables (Clerk & Backend URL):**
     Create a `.env.local` file inside the `frontend` directory. You can copy the example file:
 
     ```bash
     cp frontend/.env.example frontend/.env.local
     ```
+    Then, open `frontend/.env.local` and replace the placeholder values with your actual Clerk.dev API keys:
 
-    The default configuration should work with the `docker-compose` setup.
+    ```dotenv
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_YOUR_PUBLISHABLE_KEY
+    CLERK_SECRET_KEY=sk_test_YOUR_SECRET_KEY
+    NEXT_PUBLIC_API_URL=http://localhost:8000
+    ```
 
-3.  **Build and run the containers:**
+4.  **Build and run the containers:**
 
     ```bash
     docker-compose up --build
     ```
 
-4.  **Access the application:**
+5.  **Access the application:**
     - The **frontend** will be available at [http://localhost:3000](http://localhost:3000).
     - The **backend API** documentation will be available at [http://localhost:8000/docs](http://localhost:8000/docs).
 

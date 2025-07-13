@@ -1,0 +1,19 @@
+# Node / Next.js
+node_modules
+.next
+.DS_Store
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# IDEs
+.idea/
+.vscode/
+
+# Project-specific ignored files
+Answers.docx
+Answers.pdf
+startup_log.txt
