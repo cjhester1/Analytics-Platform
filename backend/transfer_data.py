@@ -124,6 +124,7 @@ def execute_sql_files():
         'get_b2b_rankings.sql',
         'get_ranked_rest_between_games.sql',
         'get_team_rankings_range.sql',
+        'get_player_stints.sql'
     ]
     
     with engine.connect() as connection:
