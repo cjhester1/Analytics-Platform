@@ -22,11 +22,17 @@ This project is a full-stack application designed to ingest, analyze, and visual
 - **Database**: PostgreSQL
 - **Containerization**: Docker, Docker Compose
 
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Git](https://git-scm.com/downloads)
+
 ## Getting Started
 
-To get the project up and running, please follow the detailed instructions in the [DETAILED_SETUP_GUIDE.md](DETAILED_SETUP_GUIDE.md).
+To get the project up and running, please follow the detailed instructions in the [DETAILED_SETUP_GUIDE.md](DETAILED_SETUP_GUIDE.md). This guide provides essential setup steps for your database and authentication credentials.
 
-### Quick Start (Assumes all prerequisites and configurations are met)
+### Quick Start (After completing the detailed setup)
 
 1.  **Clone the repository:**
 
@@ -49,10 +55,10 @@ To get the project up and running, please follow the detailed instructions in th
 
 ```
 .
-├── backend/         # Python FastAPI backend
+├── backend/
+│   ├── sql-files/       # Contains all SQL queries
+│   └── dev_test_data/   # Sample JSON data
 ├── frontend/        # Next.js frontend
-├── sql-files/       # Contains all SQL queries
-├── dev_test_data/   # Sample JSON data
 ├── docker-compose.yml # Docker orchestration file
 └── README.md
 ```
