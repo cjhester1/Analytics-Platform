@@ -1,4 +1,4 @@
-# LA Clippers Full-Stack Data Application
+### Full-Stack Data Application
 
 This project is a full-stack application designed to ingest, analyze, and visualize basketball data. The application features a Python-based backend with FastAPI, a Next.js frontend, and a PostgreSQL database, all containerized with Docker.
 
@@ -45,7 +45,8 @@ This project is a full-stack application designed to ingest, analyze, and visual
     POSTGRES_PASSWORD=your_password
     POSTGRES_DB=your_database_name
     ```
-    *Note: For local development, you can use simple credentials. For production, use strong, unique passwords.*
+
+    _Note: For local development, you can use simple credentials. For production, use strong, unique passwords._
 
 3.  **Configure Frontend Environment Variables (Clerk & Backend URL):**
     Create a `.env.local` file inside the `frontend` directory. You can copy the example file:
@@ -53,6 +54,7 @@ This project is a full-stack application designed to ingest, analyze, and visual
     ```bash
     cp frontend/.env.example frontend/.env.local
     ```
+
     Then, open `frontend/.env.local` and replace the placeholder values with your actual Clerk.dev API keys:
 
     ```dotenv
