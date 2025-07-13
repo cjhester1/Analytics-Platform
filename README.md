@@ -24,52 +24,24 @@ This project is a full-stack application designed to ingest, analyze, and visual
 
 ## Getting Started
 
-### Prerequisites
+To get the project up and running, please follow the detailed instructions in the [DETAILED_SETUP_GUIDE.md](DETAILED_SETUP_GUIDE.md).
 
-- Docker and Docker Compose must be installed on your machine.
-
-### Installation & Setup
+### Quick Start (Assumes all prerequisites and configurations are met)
 
 1.  **Clone the repository:**
 
     ```bash
     git clone <your-repository-url>
-    cd Christopher_Hester
+    cd Analytics-Platform
     ```
 
-2.  **Configure Database Environment Variables:**
-    Create a `.env` file in the root of the project (where `docker-compose.yml` is located) and add your PostgreSQL credentials. Replace `your_username`, `your_password`, and `your_database_name` with your actual values.
-
-    ```dotenv
-    POSTGRES_USER=your_username
-    POSTGRES_PASSWORD=your_password
-    POSTGRES_DB=your_database_name
-    ```
-
-    _Note: For local development, you can use simple credentials. For production, use strong, unique passwords._
-
-3.  **Configure Frontend Environment Variables (Clerk & Backend URL):**
-    Create a `.env.local` file inside the `frontend` directory. You can copy the example file:
-
-    ```bash
-    cp frontend/.env.example frontend/.env.local
-    ```
-
-    Then, open `frontend/.env.local` and replace the placeholder values with your actual Clerk.dev API keys:
-
-    ```dotenv
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_YOUR_PUBLISHABLE_KEY
-    CLERK_SECRET_KEY=sk_test_YOUR_SECRET_KEY
-    NEXT_PUBLIC_API_URL=http://localhost:8000
-    ```
-
-4.  **Build and run the containers:**
+2.  **Build and run the containers:**
 
     ```bash
     docker-compose up --build
     ```
 
-5.  **Access the application:**
+3.  **Access the application:**
     - The **frontend** will be available at [http://localhost:3000](http://localhost:3000).
     - The **backend API** documentation will be available at [http://localhost:8000/docs](http://localhost:8000/docs).
 
